@@ -454,6 +454,19 @@
     .feat-visual .g { color: var(--lime); }
     .feat-visual .d { color: var(--cream-dim); opacity: 0.5; }
 
+    .feat-visual-svg {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feat-visual-svg svg {
+      width: 100%;
+      max-width: 460px;
+      height: auto;
+    }
+
     /* ---- Comparison ---- */
     .comp-table {
       width: 100%;
@@ -672,15 +685,67 @@
         <h3>Bidirectional MCP Channel</h3>
         <p>Not a one-way annotation tool. Peekback uses Claude's experimental channel protocol for push notifications. Your feedback arrives instantly &mdash; no polling, no tool calls, no copy-paste.</p>
       </div>
-      <div class="feat-visual"><span class="d">Browser</span>                    <span class="d">Claude Code</span>
+      <div class="feat-visual feat-visual-svg">
+        <svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <!-- Browser group -->
+          <rect x="8" y="8" width="280" height="110" rx="8" stroke="#BFFF0030" stroke-width="1"/>
+          <text x="20" y="28" fill="#666" font-size="10" font-family="JetBrains Mono, monospace">Browser</text>
 
-<span class="g">Content Script</span>   <span class="g">Side Panel</span>   <span class="g">Background</span>
- Inspector    &lt;=msg=&gt;  Chat UI  &lt;=msg=&gt;  WS Client
- Highlights            Actions            |
-                                          | <span class="g">ws://localhost</span>
-                                          |
-              <span class="g">MCP Channel</span>              |
-              WS Hub &mdash;&mdash; Session &mdash;&mdash; <span class="g">stdio</span></div>
+          <rect x="20" y="40" width="80" height="36" rx="5" fill="#BFFF0010" stroke="#BFFF0030"/>
+          <text x="60" y="55" fill="#BFFF00" font-size="9" font-family="JetBrains Mono, monospace" text-anchor="middle">Content</text>
+          <text x="60" y="67" fill="#BFFF00" font-size="9" font-family="JetBrains Mono, monospace" text-anchor="middle">Script</text>
+
+          <rect x="112" y="40" width="80" height="36" rx="5" fill="#BFFF0010" stroke="#BFFF0030"/>
+          <text x="152" y="55" fill="#BFFF00" font-size="9" font-family="JetBrains Mono, monospace" text-anchor="middle">Side</text>
+          <text x="152" y="67" fill="#BFFF00" font-size="9" font-family="JetBrains Mono, monospace" text-anchor="middle">Panel</text>
+
+          <rect x="204" y="40" width="80" height="36" rx="5" fill="#BFFF0010" stroke="#BFFF0030"/>
+          <text x="244" y="55" fill="#BFFF00" font-size="9" font-family="JetBrains Mono, monospace" text-anchor="middle">Background</text>
+          <text x="244" y="67" fill="#BFFF00" font-size="9" font-family="JetBrains Mono, monospace" text-anchor="middle">SW</text>
+
+          <!-- Arrows between browser components -->
+          <line x1="100" y1="58" x2="112" y2="58" stroke="#C8C2B640" stroke-width="1"/>
+          <line x1="192" y1="58" x2="204" y2="58" stroke="#C8C2B640" stroke-width="1"/>
+          <text x="106" y="53" fill="#666" font-size="7" font-family="JetBrains Mono, monospace" text-anchor="middle">msg</text>
+          <text x="198" y="53" fill="#666" font-size="7" font-family="JetBrains Mono, monospace" text-anchor="middle">msg</text>
+
+          <!-- Labels under browser boxes -->
+          <text x="60" y="92" fill="#C8C2B680" font-size="8" font-family="JetBrains Mono, monospace" text-anchor="middle">Inspector</text>
+          <text x="60" y="103" fill="#C8C2B680" font-size="8" font-family="JetBrains Mono, monospace" text-anchor="middle">Highlights</text>
+          <text x="152" y="92" fill="#C8C2B680" font-size="8" font-family="JetBrains Mono, monospace" text-anchor="middle">Chat UI</text>
+          <text x="152" y="103" fill="#C8C2B680" font-size="8" font-family="JetBrains Mono, monospace" text-anchor="middle">Actions</text>
+          <text x="244" y="92" fill="#C8C2B680" font-size="8" font-family="JetBrains Mono, monospace" text-anchor="middle">WS Client</text>
+          <text x="244" y="103" fill="#C8C2B680" font-size="8" font-family="JetBrains Mono, monospace" text-anchor="middle">Screenshot</text>
+
+          <!-- WebSocket connection line -->
+          <line x1="244" y1="118" x2="244" y2="155" stroke="#BFFF00" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="270" y="140" fill="#BFFF00" font-size="8" font-family="JetBrains Mono, monospace" opacity="0.7">ws://localhost</text>
+
+          <!-- MCP Channel group -->
+          <rect x="100" y="155" width="352" height="55" rx="8" stroke="#BFFF0030" stroke-width="1"/>
+          <text x="112" y="175" fill="#666" font-size="10" font-family="JetBrains Mono, monospace">MCP Channel</text>
+
+          <rect x="112" y="185" width="70" height="18" rx="4" fill="#BFFF0008" stroke="#BFFF0020"/>
+          <text x="147" y="197" fill="#C8C2B6" font-size="8" font-family="JetBrains Mono, monospace" text-anchor="middle">WS Hub</text>
+
+          <rect x="210" y="185" width="70" height="18" rx="4" fill="#BFFF0008" stroke="#BFFF0020"/>
+          <text x="245" y="197" fill="#C8C2B6" font-size="8" font-family="JetBrains Mono, monospace" text-anchor="middle">Sessions</text>
+
+          <rect x="308" y="185" width="70" height="18" rx="4" fill="#BFFF0008" stroke="#BFFF0020"/>
+          <text x="343" y="197" fill="#BFFF00" font-size="8" font-family="JetBrains Mono, monospace" text-anchor="middle">MCP stdio</text>
+
+          <!-- Arrows in channel -->
+          <line x1="182" y1="194" x2="210" y2="194" stroke="#C8C2B640" stroke-width="1"/>
+          <line x1="280" y1="194" x2="308" y2="194" stroke="#C8C2B640" stroke-width="1"/>
+
+          <!-- Claude Code box -->
+          <rect x="392" y="220" width="60" height="30" rx="6" fill="#BFFF0015" stroke="#BFFF00" stroke-width="1.5"/>
+          <text x="422" y="239" fill="#BFFF00" font-size="9" font-family="Syne, sans-serif" font-weight="700" text-anchor="middle">Claude</text>
+
+          <!-- Arrow from MCP to Claude -->
+          <line x1="378" y1="203" x2="412" y2="220" stroke="#BFFF00" stroke-width="1.5" stroke-dasharray="4 3"/>
+        </svg>
+      </div>
     </div>
 
     <div class="feat-card">
