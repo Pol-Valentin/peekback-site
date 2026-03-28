@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Peekback</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0A0A0C;
+      color: #F5F0E8;
+      line-height: 1.8;
+      padding: 80px 32px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+    .updated {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 40px;
+    }
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 36px;
+      margin-bottom: 12px;
+      color: #BFFF00;
+    }
+    p, li { font-size: 15px; color: #C8C2B6; margin-bottom: 12px; }
+    ul { padding-left: 20px; }
+    a { color: #BFFF00; }
+    .back { display: inline-block; margin-bottom: 32px; color: #888; text-decoration: none; font-size: 13px; }
+    .back:hover { color: #BFFF00; }
+  </style>
+</head>
+<body>
+  <a href="/" class="back">&larr; Back to Peekback</a>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: March 28, 2026</p>
+
+  <h2>Overview</h2>
+  <p>Peekback is an open-source browser extension that sends visual feedback (DOM element data and screenshots) from your browser to a locally running MCP channel connected to Claude Code. Your data never leaves your machine.</p>
+
+  <h2>Data Collection</h2>
+  <p>Peekback does <strong>not</strong> collect, store, or transmit any personal data to external servers. Specifically:</p>
+  <ul>
+    <li>No analytics or telemetry</li>
+    <li>No cookies or tracking</li>
+    <li>No user accounts or authentication</li>
+    <li>No data sent to third-party services</li>
+  </ul>
+
+  <h2>Data Processed Locally</h2>
+  <p>When you use Peekback, the following data is processed <strong>entirely on your local machine</strong>:</p>
+  <ul>
+    <li><strong>DOM element fingerprints</strong> — CSS selectors, HTML snippets, text content, and attributes of elements you select</li>
+    <li><strong>Screenshots</strong> — PNG images captured from your browser viewport, saved temporarily in <code>/tmp/</code></li>
+    <li><strong>Messages</strong> — Text comments you write in the sidebar</li>
+  </ul>
+  <p>This data is transmitted via WebSocket to a locally running MCP channel process (<code>ws://localhost:9420</code>) and then passed to Claude Code via MCP stdio. All communication happens on <code>localhost</code> — nothing is sent over the internet by the extension.</p>
+
+  <h2>Permissions</h2>
+  <p>The extension requests the following browser permissions:</p>
+  <ul>
+    <li><strong>activeTab / tabs</strong> — To capture screenshots and inject the content script</li>
+    <li><strong>storage</strong> — To persist user preferences (highlight toggle state)</li>
+    <li><strong>sidePanel</strong> (Chrome) — To display the sidebar UI</li>
+  </ul>
+
+  <h2>Third-Party Services</h2>
+  <p>Peekback does not integrate with any third-party services. The MCP channel communicates exclusively with a locally running Claude Code instance.</p>
+
+  <h2>Open Source</h2>
+  <p>The complete source code is available at <a href="https://github.com/Pol-Valentin/claude-feedback-browser-ext">github.com/Pol-Valentin/claude-feedback-browser-ext</a>. You can audit every line of code.</p>
+
+  <h2>Contact</h2>
+  <p>For questions about this privacy policy, open an issue on the <a href="https://github.com/Pol-Valentin/claude-feedback-browser-ext/issues">GitHub repository</a>.</p>
+</body>
+</html>
